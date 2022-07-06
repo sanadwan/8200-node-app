@@ -4,6 +4,7 @@ const app = express();
 const port = 3000;
 const primes = require('./primes.js');
 const fs = require('fs');
+const power = require('./power.js');
 
 app.get('/', function(req, res){
 	fs.readFile('index.html', function(err, data) {
@@ -15,6 +16,10 @@ app.get('/', function(req, res){
 
 app.get('/isPrime/:number', function(req, res){
     res.status(200).send(primes.isPrime(req.params.number));    
+})
+
+app.get('/isPower/:number%20:number', function(req, res){
+  res.status(200).send(isPower.isPower(req.poparams.number, req.poparams.number));    
 })
 
 exports.stop = function(){
